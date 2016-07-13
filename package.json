@@ -1,1 +1,10 @@
-# personalsite
+{
+  "name": "MyPersonalSite",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular":  "1.2.16"
+  },
+  ".gitignore": {
+    "node_modules"
+  }
+}
