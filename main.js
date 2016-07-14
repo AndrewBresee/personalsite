@@ -1,4 +1,4 @@
-  var myApp = angular.module('myPage', [])
+  var myApp = angular.module('myPage', ['ngRoute'])
 
   myApp.controller('MyController', ['$scope', function ($scope) {
         $scope.greetMe = 'Hello world!';
