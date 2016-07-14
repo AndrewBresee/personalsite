@@ -1,12 +1,31 @@
-   angular.module('myPage', [])
-      .controller('MyController', ['$scope', function ($scope) {
-        $scope.greetMe = 'World';
+  var myApp = angular.module('myPage', [])
+
+  myApp.controller('MyController', ['$scope', function ($scope) {
+        $scope.greetMe = 'Hello world!';
       }]);
 
-    angular.element(document).ready(function() {
-      angular.bootstrap(document, ['myApp']);
-    });
 
-    var logMe = function() {
-    	console.log("Connected!");
-    }();
+// configuring navbar https://scotch.io/tutorials/single-page-apps-with-angularjs-routing-and-templating
+
+    myApp.config(function($routeProvider) {
+      $routeProvider
+
+          // route for the home page
+          .when('/', {
+              templateUrl : 'pages/home.html',
+              controller  : 'mainController'
+          })
+
+          // route for the about page
+          .when('/about', {
+              templateUrl : 'pages/about.html',
+              controller  : 'aboutController'
+          })
+
+          // route for the contact page
+          .when('/contact', {
+              templateUrl : 'pages/contact.html',
+              controller  : 'contactController'
+          });
+  	});
+
