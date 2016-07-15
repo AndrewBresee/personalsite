@@ -1,31 +1,22 @@
-  var myApp = angular.module('myPage', ['ngRoute'])
-
-  myApp.controller('MyController', ['$scope', function ($scope) {
-        $scope.greetMe = 'Hello world!';
-      }]);
-
+  var myApp = angular.module('myPage', ['ngRoute']);
 
 // configuring navbar https://scotch.io/tutorials/single-page-apps-with-angularjs-routing-and-templating
+    myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
+        $routeProvider.
+        when('/', {
+            templateUrl: 'part.html',
+            controller: 'MyCtrl'
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
+    }
+]);
 
-    myApp.config(function($routeProvider) {
-      $routeProvider
+  	myApp.controller('mainController', ['$scope', function ($scope) {
+  	      $scope.greetMe = 'Hello world!';
+  	}]);
 
-          // route for the home page
-          .when('/', {
-              templateUrl : 'pages/home.html',
-              controller  : 'mainController'
-          })
 
-          // route for the about page
-          .when('/about', {
-              templateUrl : 'pages/about.html',
-              controller  : 'aboutController'
-          })
-
-          // route for the contact page
-          .when('/contact', {
-              templateUrl : 'pages/contact.html',
-              controller  : 'contactController'
-          });
-  	});
 

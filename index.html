@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 
-<html class="no-js">
+<html ng-app="myPage">
 <head>
 
-<link rel="stylesheet" href="style.css">
 <script src="node_modules/angular/lib/angular.min.js"></script>
- <script src="node_modules/angular-route/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+
 
 </head>
 
 
-<body ng-app="myPage">
+<body ng-controller="mainController">
 
 <header>
     <nav class="navbar navbar-default">
@@ -27,11 +30,15 @@
     </div>
     </nav>
 </header>
-
-<!-- Include profile photo -->
 <img src="profilePhoto.jpg">
 
-<p ng-controller="MyController">{{ greetMe }}</p>
+<div id="main">
+
+     <!-- angular templating -->
+     <!-- this is where content will be injected -->
+     <div ng-view></div>
+
+ </div>
 
 
 <script src="main.js"></script> 
